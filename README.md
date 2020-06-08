@@ -1,3 +1,25 @@
 The following is the Readme file for the device-monitor project. 
 
-# Installation of Repo
+# Installation of or project
+
+```
+npm i
+```
+
+# Run the project locally
+```
+ionic serve
+```
+
+# Run Linting
+
+To check the status of the linting within the project
+```
+npm run lint
+```
+
+To run linting and fix errors
+
+```
+node_modules/.bin/eslint src/**/*.tsx --fix
+```
