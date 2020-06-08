@@ -21,6 +21,10 @@ const getDeviceData = (): Array<DeviceData> => {
             label: 'Model',
             value: 'XSFAE',
         },
+        {
+            label: 'Hostname',
+            value: 'Test',
+        },
     ];
 };
 
