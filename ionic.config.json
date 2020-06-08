@@ -1,0 +1,7 @@
+{
+  "name": "device-monitor",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
