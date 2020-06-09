@@ -13,18 +13,23 @@ const DeviceDetails: React.FC<DeviceDetailsProps> = (props: DeviceDetailsProps):
         return <DeviceField label={label} value={value} key={`df-${id}-${label}-${value}`} />;
     };
 
-    const getDeviceDetails = (details: DeviceDetailsModel|undefined) => {
+    const getDeviceDetails = (details: DeviceDetailsModel| undefined) => {
 
-        if( typeof details === 'undefined') return;
+        if( typeof details === 'undefined') {
+            console.log( 'Get Device Details is undefined');
+            return;
+        }
 
         const keys: string[] = Object.keys( details );
         if( details && keys.length > 0){
-            (Object.keys(details) as Array<keyof typeof details>).map ( (field, i) => {
+
+            const deviceDetails = (Object.keys(details) as Array<keyof typeof details>).map ( (field, i) => {
                 return getDeviceDetail(field, details[field], i);
             })
+
+            return deviceDetails;
         }
     };
-
     return (
         <IonGrid>
             <IonRow>

@@ -6,7 +6,7 @@ import DeviceWebBridge from './web/DeviceWebBridge';
  * The following functions will operate as a creational factory for generating the
  * appropriate driver bridges based on the environment.
  */
-const TEST = true;
+const TEST = false;
 enum RuntimeEnvironment {
     WEB,
     ANDROID,

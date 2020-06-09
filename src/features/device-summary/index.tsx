@@ -43,8 +43,7 @@ class DeviceSummary extends Component {
     }
 
     render() {
-        const {headerLabel, headerField, deviceDetails } = this.state;
-
+        console.log( 'Rerending the summary page', this.state.deviceDetails);
         return (
             <IonPage>
                 <IonHeader>
@@ -53,7 +52,7 @@ class DeviceSummary extends Component {
                     </IonToolbar>
                 </IonHeader>
                 <IonContent>
-                    <DeviceDetails headerField={headerLabel} headerLabel={headerField} deviceDetails={deviceDetails}/>
+                    <DeviceDetails headerField={this.state.headerLabel} headerLabel={this.state.headerField} deviceDetails={this.state.deviceDetails}/>
                 </IonContent>
             </IonPage>
         );
