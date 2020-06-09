@@ -31,7 +31,7 @@ const getEnvironment = (): RuntimeEnvironment => {
  * @return IDeviceBridge
  */
 export const getDeviceBridge = (): IDeviceBridge => {
-    const env = getEnvironment();
+    const env: RuntimeEnvironment = getEnvironment();
 
     if (WEB_ENV.indexOf(env) >= 0) {
         return new DeviceWebBridge();
