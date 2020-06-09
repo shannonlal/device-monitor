@@ -2,6 +2,12 @@ The following is the Readme file for the device-monitor project.
 
 # Installation of or project
 
+## Install Ionic CLI
+```
+npm install -g @ionic/cli
+```
+
+## Install the project depenedencies 
 ```
 npm i
 ```
@@ -11,18 +17,7 @@ npm i
 ionic serve
 ```
 
-# Run Linting
 
-To check the status of the linting within the project
-```
-npm run lint
-```
-
-To run linting and fix errors
-
-```
-node_modules/.bin/eslint src/**/*.tsx --fix
-```
 
 # Build Project for Different Environments
 
@@ -35,3 +30,18 @@ node_modules/.bin/eslint src/**/*.tsx --fix
 ionic cap run android -l --external
 ```
 ## iOS Build
+
+# Code Maintenance
+
+## Linting
+
+To check the status of the linting within the project
+```
+npm run lint
+```
+
+To run linting and fix errors
+
+```
+node_modules/.bin/eslint src/**/*.tsx --fix
+```

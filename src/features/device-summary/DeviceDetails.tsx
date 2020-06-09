@@ -1,7 +1,12 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { IonText, IonRow, IonCol, IonGrid } from '@ionic/react';
 
 import { DeviceField } from '../../components/common';
+
+import { Plugins } from '@capacitor/core';
+
+const { Device } = Plugins;
+
 
 type DeviceDetailsProps = {
     headerLabel: string;
@@ -20,6 +25,21 @@ const DeviceDetails: React.FC<DeviceDetailsProps> = (props: DeviceDetailsProps):
     const getDeviceDetails = (fields: Array<any>) => {
         return fields.map((field, i) => getDeviceDetail(field.label, field.value, i));
     };
+
+    useEffect( () => {
+
+        const getDeviceData = async () => {
+            const deviceDetails = await Device.getInfo();
+
+            console.log( 'Getting Device Details ', deviceDetails );
+
+            alert(`App Build ${deviceDetails.appBuild}`);
+        };
+
+        getDeviceData();
+
+
+    }, [])
 
     return (
         <IonGrid>
