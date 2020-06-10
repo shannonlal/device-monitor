@@ -2,13 +2,19 @@ import React, { Component } from 'react';
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/react';
 
 import DeviceDetails from './DeviceDetails';
-import DeviceDetailsModel from '../../models/DeviceDetailsModel';
+import {DeviceDetailsModel} from '../../models/';
 import {getDeviceBridge} from '../../drivers/DriverFactory';
 
 const INITIAL_STATE = {
     headerLabel: "",
-    headerField: "",
-    deviceDetails:undefined
+    headerField: ""
+};
+
+type DeviceSummaryProps = {};
+type DeviceSummaryState = {
+    headerLabel: string;
+    headerField: string;
+    deviceDetails?: DeviceDetailsModel;
 };
 
 /**
@@ -16,34 +22,32 @@ const INITIAL_STATE = {
  * @return
  */
 const getDeviceData = async ():Promise<DeviceDetailsModel> => {
-
     const deviceDetails: DeviceDetailsModel = await getDeviceBridge().getDeviceInfo();
-    console.log( 'Getting Device Details ', deviceDetails );
-    alert(`App Build ${deviceDetails.appBuild}`);
 
     return deviceDetails;
 };
-class DeviceSummary extends Component {
-    state: any = {};
+
+
+class DeviceSummary extends Component<DeviceSummaryProps,DeviceSummaryState> {
+    // state: any = {};
     constructor(props: any) {
         super(props);
-        this.state = { ...INITIAL_STATE };
+        this.state = { ...INITIAL_STATE};
     }
 
-    componentWillMount(){
+    componentDidMount(){
 
         getDeviceData().then( deviceDetails => {
-            console.log( 'Updating device details', deviceDetails)
             this.setState( {
                 deviceDetails:deviceDetails
             });
         }).catch( err => {
-            console.log( 'Unexpected Error in compoment will mount', err);
+            // console.log( 'Unexpected Error in compoment will mount', err);
+            // TODO Routte to console.log
         });
     }
 
     render() {
-        console.log( 'Rerending the summary page', this.state.deviceDetails);
         return (
             <IonPage>
                 <IonHeader>

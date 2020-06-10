@@ -1,6 +1,6 @@
 import React from 'react';
 import { IonText, IonRow, IonCol, IonGrid } from '@ionic/react';
-import DeviceDetailsModel from '../../models/DeviceDetailsModel';
+import {DeviceDetailsModel} from '../../models';
 import { DeviceField } from '../../components/common';
 
 type DeviceDetailsProps = {
@@ -16,7 +16,6 @@ const DeviceDetails: React.FC<DeviceDetailsProps> = (props: DeviceDetailsProps):
     const getDeviceDetails = (details: DeviceDetailsModel| undefined) => {
 
         if( typeof details === 'undefined') {
-            console.log( 'Get Device Details is undefined');
             return;
         }
 
