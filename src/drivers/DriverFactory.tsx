@@ -6,8 +6,8 @@ import DeviceWebBridge from './web/DeviceWebBridge';
  * The following functions will operate as a creational factory for generating the
  * appropriate driver bridges based on the environment.
  */
-const TEST = false;
-enum RuntimeEnvironment {
+
+export enum RuntimeEnvironment {
     WEB,
     ANDROID,
     IOS,
@@ -15,15 +15,21 @@ enum RuntimeEnvironment {
 const WEB_ENV = [RuntimeEnvironment.WEB];
 // const MOBILE_ENV = [RuntimeEnvironment.ANDROID, RuntimeEnvironment.IOS];
 
+// Set default
+let RUNTIME_ENV = RuntimeEnvironment.WEB;
+
+/**
+ *
+ * @param env
+ */
+export const setRuntimeEnvironment = (env: RuntimeEnvironment): void => {
+    RUNTIME_ENV = env;
+};
 /**
  * This function will return the appropriate environemnt that this is operating in
  */
-const getEnvironment = (): RuntimeEnvironment => {
-    if (TEST) {
-        return RuntimeEnvironment.WEB;
-    } else {
-        return RuntimeEnvironment.ANDROID;
-    }
+export const getEnvironment = (): RuntimeEnvironment => {
+    return RUNTIME_ENV;
 };
 
 /**

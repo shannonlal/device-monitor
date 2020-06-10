@@ -29,6 +29,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test:coverage": "CI=true npm run test -- --env=jsdom --coverage",
     "eject": "react-scripts eject",
     "lint": "eslint src/**/*.tsx"
   },
@@ -57,5 +58,26 @@
     "eslint-plugin-react": "^7.20.0",
     "prettier": "^2.0.5"
   },
-  "description": "An Ionic project"
+  "description": "An Ionic project",
+  "jest": {
+      "collectCoverageFrom": [
+        "<rootDir>/src/**/*.tsx",
+        "!<rootDir>/node_modules/",
+        "!<rootDir>/build/",
+        "!<rootDir>/ios/",
+        "!<rootDir>/public/",
+        "!<rootDir>/android/",
+        "!<rootDir>/coverage/",
+        "!<rootDir>/.gradle/"
+      ],
+      "coverageThreshold": {
+        "global": {
+          "branches": 90,
+          "functions": 90,
+          "lines": 90,
+          "statements": 90
+        }
+      },
+      "coverageReporters": ["text"]
+    }
 }
