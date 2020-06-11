@@ -1,7 +1,7 @@
 import React from 'react';
 import { IonText, IonRow, IonCol, IonGrid } from '@ionic/react';
 import {DeviceDetailsModel} from '../../models';
-import { DeviceField } from '../../components/common';
+import { DeviceField } from '../../components/common/index';
 
 type DeviceDetailsProps = {
     headerLabel: string;

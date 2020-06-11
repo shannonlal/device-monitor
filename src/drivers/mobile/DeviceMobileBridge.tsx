@@ -1,5 +1,5 @@
 import {IDeviceBridge} from '../interface';
-import DeviceDetailsModel from '../../models/DeviceDetailsModel';
+import {DeviceDetailsModel} from '../../models';
 import { Plugins } from '@capacitor/core';
 const { Device } = Plugins;
 

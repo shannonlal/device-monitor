@@ -1,8 +1,5 @@
 import {IDeviceBridge} from '../interface';
-import DeviceDetailsModel from '../../models/DeviceDetailsModel';
-import { Plugins } from '@capacitor/core';
-
-const { Device } = Plugins;
+import {DeviceDetailsModel} from '../../models';
 
 /**
  * The following class is a web implementation of the device bridge
