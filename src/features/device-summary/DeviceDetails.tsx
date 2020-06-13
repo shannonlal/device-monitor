@@ -1,12 +1,12 @@
 import React from 'react';
 import { IonText, IonRow, IonCol, IonGrid } from '@ionic/react';
 import {DeviceDetailsModel} from '../../models';
-import { DeviceField } from '../../components/common/index';
+import DeviceField  from '../../components/common/DeviceField';
 
 type DeviceDetailsProps = {
     headerLabel: string;
     headerField: string;
-    deviceDetails: DeviceDetailsModel|undefined;
+    deviceDetails?: DeviceDetailsModel|undefined;
 };
 const DeviceDetails: React.FC<DeviceDetailsProps> = (props: DeviceDetailsProps): React.ReactElement => {
     const getDeviceDetail = (label: string, value: any, id: number) => {
@@ -20,14 +20,11 @@ const DeviceDetails: React.FC<DeviceDetailsProps> = (props: DeviceDetailsProps):
         }
 
         const keys: string[] = Object.keys( details );
-        if( details && keys.length > 0){
+        const deviceDetails = (Object.keys(details) as Array<keyof typeof details>).map ( (field, i) => {
+            return getDeviceDetail(field, details[field], i);
+        })
 
-            const deviceDetails = (Object.keys(details) as Array<keyof typeof details>).map ( (field, i) => {
-                return getDeviceDetail(field, details[field], i);
-            })
-
-            return deviceDetails;
-        }
+        return deviceDetails;
     };
     return (
         <IonGrid>

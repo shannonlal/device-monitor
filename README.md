@@ -45,3 +45,16 @@ To run linting and fix errors
 ```
 node_modules/.bin/eslint src/**/*.tsx --fix
 ```
+
+## Testing
+To run the tests use the following command
+```
+npm run test
+```
+
+If building a new snapshot or updating a snapshot run the following command
+
+```
+```
+
+## Code Coverage

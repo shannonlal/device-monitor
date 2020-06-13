@@ -13,3 +13,4 @@ export type DeviceDetailsModel = {
     uuid: string;
     isVirtual: boolean;
 };
+
