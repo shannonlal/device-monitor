@@ -1,5 +1,5 @@
 import {IDeviceBridge} from '../interface';
-import {DeviceDetailsModel} from '../../models';
+import {DeviceDetailsModel} from '../../interfaces/models';
 
 /**
  * The following class is a web implementation of the device bridge

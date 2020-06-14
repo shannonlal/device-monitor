@@ -1,4 +1,4 @@
-import {DeviceDetailsModel} from '../../models'
+import {DeviceDetailsModel} from '../../interfaces/models'
 
 
 jest.mock('@capacitor/core');

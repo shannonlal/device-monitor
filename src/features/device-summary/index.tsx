@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/react';
 
 import DeviceDetails from './DeviceDetails';
-import {DeviceDetailsModel} from '../../models/';
+import {DeviceDetailsModel} from '../../interfaces/models';
 import {getDeviceBridge} from '../../drivers/DriverFactory';
 
 const INITIAL_STATE = {

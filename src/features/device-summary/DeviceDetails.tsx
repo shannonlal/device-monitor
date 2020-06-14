@@ -1,6 +1,6 @@
 import React from 'react';
 import { IonText, IonRow, IonCol, IonGrid } from '@ionic/react';
-import {DeviceDetailsModel} from '../../models';
+import {DeviceDetailsModel} from '../../interfaces/models';
 import DeviceField  from '../../components/common/DeviceField';
 
 type DeviceDetailsProps = {
