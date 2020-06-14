@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import DeviceDetails from './DeviceDetails';
-import {IDeviceDetailsModel} from '../../interfaces/models';
+import {IDeviceDetailsModel} from '../../../interfaces/models';
 
 describe('DeviceField', () => {
     test('rendering a simple device field', async () => {

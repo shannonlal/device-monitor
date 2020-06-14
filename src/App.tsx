@@ -2,6 +2,7 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 import { IonApp, IonRouterOutlet } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
+import { Provider } from 'react-redux';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -22,17 +23,21 @@ import '@ionic/react/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 
+/* Redux Store */
+import {store} from './store/index'
 /* Features */
-import DeviceSummary from './features/device-summary';
+import DeviceSummary from './features/device-summary/component';
 
 const App: React.FC = () => (
-    <IonApp>
-        <IonReactRouter>
-            <IonRouterOutlet>
-                <Route exact path="/" component={DeviceSummary} />
-            </IonRouterOutlet>
-        </IonReactRouter>
-    </IonApp>
+    <Provider store={store}>
+        <IonApp>
+            <IonReactRouter>
+                <IonRouterOutlet>
+                    <Route exact path="/" component={DeviceSummary} />
+                </IonRouterOutlet>
+            </IonReactRouter>
+        </IonApp>
+    </Provider>
 );
 
 export default App;

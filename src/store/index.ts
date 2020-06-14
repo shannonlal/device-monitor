@@ -7,17 +7,12 @@ import {
     createStore,
 } from 'redux';
 
-/** import {
-    connectRouter,  
-    routerMiddleware,
-} from 'connected-react-router'; **/
 
-//import * as reducers from './reducers';
-
+import {deviceDetailsReducer} from '../features/device-summary/store/reducer'
 const composeEnhancers = (<any>window).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 //export const history = createBrowserHistory();
 export const store = createStore(
-    //combineReducers({ ...reducers }),
+    combineReducers({ deviceDetails:deviceDetailsReducer  }),
     composeEnhancers(applyMiddleware(reduxThunk)),
 );
