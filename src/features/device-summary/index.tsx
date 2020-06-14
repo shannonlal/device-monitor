@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/react';
 
 import DeviceDetails from './DeviceDetails';
-import {DeviceDetailsModel} from '../../interfaces/models';
+import {IDeviceDetailsModel} from '../../interfaces/models';
 import {getDeviceBridge} from '../../drivers/DriverFactory';
 
 const INITIAL_STATE = {
@@ -14,15 +14,15 @@ type DeviceSummaryProps = {};
 type DeviceSummaryState = {
     headerLabel: string;
     headerField: string;
-    deviceDetails?: DeviceDetailsModel;
+    deviceDetails?: IDeviceDetailsModel;
 };
 
 /**
  * Will get the device data
  * @return
  */
-const getDeviceData = async ():Promise<DeviceDetailsModel> => {
-    const deviceDetails: DeviceDetailsModel = await getDeviceBridge().getDeviceInfo();
+const getDeviceData = async ():Promise<IDeviceDetailsModel> => {
+    const deviceDetails: IDeviceDetailsModel = await getDeviceBridge().getDeviceInfo();
 
     return deviceDetails;
 };
@@ -36,7 +36,7 @@ class DeviceSummary extends Component<DeviceSummaryProps,DeviceSummaryState> {
     }
 
     async componentDidMount(){
-        const deviceDetails:DeviceDetailsModel = await getDeviceData();
+        const deviceDetails:IDeviceDetailsModel = await getDeviceData();
         this.setState({
             deviceDetails:deviceDetails
         })

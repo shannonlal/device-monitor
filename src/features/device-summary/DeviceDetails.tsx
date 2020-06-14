@@ -1,19 +1,19 @@
 import React from 'react';
 import { IonText, IonRow, IonCol, IonGrid } from '@ionic/react';
-import {DeviceDetailsModel} from '../../interfaces/models';
+import {IDeviceDetailsModel} from '../../interfaces/models';
 import DeviceField  from '../../components/common/DeviceField';
 
 type DeviceDetailsProps = {
     headerLabel: string;
     headerField: string;
-    deviceDetails?: DeviceDetailsModel|undefined;
+    deviceDetails?: IDeviceDetailsModel|undefined;
 };
 const DeviceDetails: React.FC<DeviceDetailsProps> = (props: DeviceDetailsProps): React.ReactElement => {
     const getDeviceDetail = (label: string, value: any, id: number) => {
         return <DeviceField label={label} value={value} key={`df-${id}-${label}-${value}`} />;
     };
 
-    const getDeviceDetails = (details: DeviceDetailsModel| undefined) => {
+    const getDeviceDetails = (details: IDeviceDetailsModel| undefined) => {
 
         if( typeof details === 'undefined') {
             return;

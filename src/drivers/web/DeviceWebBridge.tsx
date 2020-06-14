@@ -1,5 +1,5 @@
 import {IDeviceBridge} from '../interface';
-import {DeviceDetailsModel} from '../../interfaces/models';
+import {IDeviceDetailsModel} from '../../interfaces/models';
 
 /**
  * The following class is a web implementation of the device bridge
@@ -12,7 +12,7 @@ export default class DeviceWebBridge implements IDeviceBridge {
     /**
      * 
      */
-    async getDeviceInfo(): Promise<DeviceDetailsModel>{
+    async getDeviceInfo(): Promise<IDeviceDetailsModel>{
         return new Promise((resolve) => {
             resolve({
                 appBuild: "",

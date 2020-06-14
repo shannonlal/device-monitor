@@ -1,7 +1,7 @@
 import {IDeviceBridge} from './index';
 
 class DeviceBridgeMock implements IDeviceBridge{
-    getDeviceInfo(): Promise<import("../../interfaces/models").DeviceDetailsModel> {
+    getDeviceInfo(): Promise<import("../../interfaces/models").IDeviceDetailsModel> {
         throw new Error("Method not implemented.");
     }
     

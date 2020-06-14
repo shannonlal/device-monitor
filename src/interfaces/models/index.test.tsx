@@ -1,8 +1,8 @@
-import { DeviceDetailsModel } from './index';
+import { IDeviceDetailsModel } from './index';
 
 describe('Device Details Model ', () => {
     test('should verify device details Model', () => {
-        const deviceDetails: DeviceDetailsModel = {
+        const deviceDetails: IDeviceDetailsModel = {
             name: 'MyPhone',
             diskFree: 101001,
             appVersion: '1.0.1',

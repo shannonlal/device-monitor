@@ -1,13 +1,13 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import DeviceDetails from './DeviceDetails';
-import {DeviceDetailsModel} from '../../interfaces/models';
+import {IDeviceDetailsModel} from '../../interfaces/models';
 
 describe('DeviceField', () => {
     test('rendering a simple device field', async () => {
         const headerLabel:string =  "Header";
         const headerField:string =  "Field";
-        const deviceDetails:DeviceDetailsModel = {
+        const deviceDetails:IDeviceDetailsModel = {
             name: "MyPhone",
             diskFree: 101001,
             appVersion: '1.0.1',
@@ -33,7 +33,7 @@ describe('DeviceField', () => {
     test('rendering a device details with optional field', async () => {
         const headerLabel:string =  "Header";
         const headerField:string =  "Field";
-        const deviceDetails:DeviceDetailsModel = {
+        const deviceDetails:IDeviceDetailsModel = {
             name: "MyPhone",
             appVersion: '1.0.1',
             appBuild: '12.1.1',

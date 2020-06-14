@@ -1,9 +1,9 @@
 /* istanbul ignore file */
 
-import {DeviceDetailsModel} from '../../interfaces/models';
+import {IDeviceDetailsModel} from '../../interfaces/models';
 
 export interface IDeviceBridge {
-    getDeviceInfo(): Promise<DeviceDetailsModel>;
+    getDeviceInfo(): Promise<IDeviceDetailsModel>;
 }
 
 

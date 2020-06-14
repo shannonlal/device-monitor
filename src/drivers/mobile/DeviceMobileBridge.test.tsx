@@ -1,4 +1,4 @@
-import {DeviceDetailsModel} from '../../interfaces/models'
+import {IDeviceDetailsModel} from '../../interfaces/models'
 
 
 jest.mock('@capacitor/core');
@@ -7,7 +7,7 @@ import { Plugins } from '@capacitor/core';
 import DeviceMobileBridge from './DeviceMobileBridge';
 
 const Device = {
-    async getInfo(): Promise<DeviceDetailsModel>{
+    async getInfo(): Promise<IDeviceDetailsModel>{
         return {
             name: "1234",
             diskFree: 123344,

@@ -1,5 +1,5 @@
 import {IDeviceBridge} from '../interface';
-import {DeviceDetailsModel} from '../../interfaces/models';
+import {IDeviceDetailsModel} from '../../interfaces/models';
 import { Plugins } from '@capacitor/core';
 const { Device } = Plugins;
 
@@ -14,7 +14,7 @@ export default class DeviceMobileBridge implements IDeviceBridge {
     /**
      * 
      */
-    async getDeviceInfo(): Promise<DeviceDetailsModel>{
+    async getDeviceInfo(): Promise<IDeviceDetailsModel>{
         return await Device.getInfo()
     }
 }
