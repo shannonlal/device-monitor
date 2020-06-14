@@ -1,0 +1,195 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DeviceSummary rendering Device Summary with mock response 1`] = `
+<DocumentFragment>
+  <div
+    class="ion-page"
+  >
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>
+          Device Summary
+        </ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-text />
+          </ion-col>
+          <ion-col>
+            <ion-text />
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-text>
+              appBuild
+            </ion-text>
+          </ion-col>
+          <ion-col>
+            <ion-text />
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-text>
+              appVersion
+            </ion-text>
+          </ion-col>
+          <ion-col>
+            <ion-text />
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-text>
+              isVirtual
+            </ion-text>
+          </ion-col>
+          <ion-col>
+            <ion-text />
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-text>
+              manufacturer
+            </ion-text>
+          </ion-col>
+          <ion-col>
+            <ion-text>
+              Google Inc.
+            </ion-text>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-text>
+              model
+            </ion-text>
+          </ion-col>
+          <ion-col>
+            <ion-text>
+              Macintosh
+            </ion-text>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-text>
+              operatingSystem
+            </ion-text>
+          </ion-col>
+          <ion-col>
+            <ion-text>
+              mac
+            </ion-text>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-text>
+              osVersion
+            </ion-text>
+          </ion-col>
+          <ion-col>
+            <ion-text>
+              10.15.4
+            </ion-text>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-text>
+              platform
+            </ion-text>
+          </ion-col>
+          <ion-col>
+            <ion-text>
+              web
+            </ion-text>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-text>
+              uuid
+            </ion-text>
+          </ion-col>
+          <ion-col>
+            <ion-text>
+              775d1a10-8077-4056-91bb-ff67217af06a
+            </ion-text>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-text>
+              diskFree
+            </ion-text>
+          </ion-col>
+          <ion-col>
+            <ion-text>
+              1110000
+            </ion-text>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-text>
+              memUsed
+            </ion-text>
+          </ion-col>
+          <ion-col>
+            <ion-text>
+              12211111
+            </ion-text>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-text>
+              diskTotal
+            </ion-text>
+          </ion-col>
+          <ion-col>
+            <ion-text>
+              1212121
+            </ion-text>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-content>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`DeviceSummary rendering Device Summary with no data 1`] = `
+<DocumentFragment>
+  <div
+    class="ion-page"
+  >
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>
+          Device Summary
+        </ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-text />
+          </ion-col>
+          <ion-col>
+            <ion-text />
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-content>
+  </div>
+</DocumentFragment>
+`;

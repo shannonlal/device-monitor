@@ -35,16 +35,11 @@ class DeviceSummary extends Component<DeviceSummaryProps,DeviceSummaryState> {
         this.state = { ...INITIAL_STATE};
     }
 
-    componentDidMount(){
-
-        getDeviceData().then( deviceDetails => {
-            this.setState( {
-                deviceDetails:deviceDetails
-            });
-        }).catch( err => {
-            // console.log( 'Unexpected Error in compoment will mount', err);
-            // TODO Routte to console.log
-        });
+    async componentDidMount(){
+        const deviceDetails:DeviceDetailsModel = await getDeviceData();
+        this.setState({
+            deviceDetails:deviceDetails
+        })
     }
 
     render() {
