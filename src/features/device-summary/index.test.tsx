@@ -1,7 +1,6 @@
 import React from 'react';
 import { render, wait } from '@testing-library/react';
 import DeviceSummary from './index';
-import {DeviceDetailsModel} from '../../models';
 
 describe('DeviceSummary', () => {
     test('rendering Device Summary with no data', async () => {

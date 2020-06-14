@@ -47,15 +47,14 @@ describe('getDeviceBridge', () => {
 
         const deviceBridge: IDeviceBridge = getDeviceBridge();
         expect(deviceBridge).toBeDefined();
-        expect(deviceBridge instanceof DeviceWebBridge ).toBeTruthy();
+        expect(deviceBridge instanceof DeviceWebBridge).toBeTruthy();
     });
-
 
     test('should get Device Mobile Bridge', () => {
         setRuntimeEnvironment(RuntimeEnvironment.ANDROID);
 
         const deviceBridge: IDeviceBridge = getDeviceBridge();
         expect(deviceBridge).toBeDefined();
-        expect(deviceBridge instanceof DeviceMobileBridge ).toBeTruthy();
+        expect(deviceBridge instanceof DeviceMobileBridge).toBeTruthy();
     });
 });

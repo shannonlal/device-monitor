@@ -55,6 +55,7 @@ npm run test
 If building a new snapshot or updating a snapshot run the following command
 
 ```
+CI=true npm run test -- --env=jsdom --coverage --updateSnapshot
 ```
 
 ## Code Coverage

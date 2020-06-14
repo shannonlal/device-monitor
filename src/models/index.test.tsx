@@ -1,11 +1,9 @@
-import {DeviceDetailsModel} from './index';
-
+import { DeviceDetailsModel } from './index';
 
 describe('Device Details Model ', () => {
     test('should verify device details Model', () => {
-
         const deviceDetails: DeviceDetailsModel = {
-            name: "MyPhone",
+            name: 'MyPhone',
             diskFree: 101001,
             appVersion: '1.0.1',
             appBuild: '12.1.1',
@@ -17,11 +15,10 @@ describe('Device Details Model ', () => {
             model: 'adadaa',
             manufacturer: 'Samsung',
             uuid: '12313231213123asdsdad',
-            isVirtual: true
-        }
+            isVirtual: true,
+        };
 
         expect(deviceDetails).toBeDefined();
-        expect(deviceDetails.name).toBe("MyPhone");
+        expect(deviceDetails.name).toBe('MyPhone');
     });
 });
-
