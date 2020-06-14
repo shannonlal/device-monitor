@@ -1,26 +1,31 @@
 import React from 'react';
 import { IonText, IonRow, IonCol, IonGrid } from '@ionic/react';
-
-import { DeviceField } from '../../components/common';
+import {DeviceDetailsModel} from '../../models';
+import DeviceField  from '../../components/common/DeviceField';
 
 type DeviceDetailsProps = {
     headerLabel: string;
     headerField: string;
-    details: Array<{
-        label: string;
-        value: string;
-    }>;
+    deviceDetails?: DeviceDetailsModel|undefined;
 };
-
 const DeviceDetails: React.FC<DeviceDetailsProps> = (props: DeviceDetailsProps): React.ReactElement => {
-    const getDeviceDetail = (label: string, value: string, id: number) => {
+    const getDeviceDetail = (label: string, value: any, id: number) => {
         return <DeviceField label={label} value={value} key={`df-${id}-${label}-${value}`} />;
     };
 
-    const getDeviceDetails = (fields: Array<any>) => {
-        return fields.map((field, i) => getDeviceDetail(field.label, field.value, i));
-    };
+    const getDeviceDetails = (details: DeviceDetailsModel| undefined) => {
 
+        if( typeof details === 'undefined') {
+            return;
+        }
+
+        const keys: string[] = Object.keys( details );
+        const deviceDetails = (Object.keys(details) as Array<keyof typeof details>).map ( (field, i) => {
+            return getDeviceDetail(field, details[field], i);
+        })
+
+        return deviceDetails;
+    };
     return (
         <IonGrid>
             <IonRow>
@@ -31,7 +36,7 @@ const DeviceDetails: React.FC<DeviceDetailsProps> = (props: DeviceDetailsProps):
                     <IonText>{props.headerField}</IonText>
                 </IonCol>
             </IonRow>
-            {getDeviceDetails(props.details)}
+            {getDeviceDetails(props.deviceDetails)}
         </IonGrid>
     );
 };
