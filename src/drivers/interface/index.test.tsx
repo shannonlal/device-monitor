@@ -1,10 +1,9 @@
-import {IDeviceBridge} from './index';
+import { IDeviceBridge } from './index';
 
-class DeviceBridgeMock implements IDeviceBridge{
-    getDeviceInfo(): Promise<import("../../interfaces/models").IDeviceDetailsModel> {
-        throw new Error("Method not implemented.");
+class DeviceBridgeMock implements IDeviceBridge {
+    getDeviceInfo(): Promise<import('../../interfaces/models').IDeviceDetailsModel> {
+        throw new Error('Method not implemented.');
     }
-    
 }
 
 describe('Device Bridge Driver Inteface ', () => {
@@ -14,4 +13,3 @@ describe('Device Bridge Driver Inteface ', () => {
         expect(deviceBridge.getDeviceInfo).toBeDefined();
     });
 });
-

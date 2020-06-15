@@ -4,12 +4,12 @@ import DeviceField from './DeviceField';
 
 describe('DeviceField', () => {
     test('rendering a simple device field', async () => {
-        const value = "value";
-        const label = "label";
+        const value = 'value';
+        const label = 'label';
 
-        const { getByText, findByText } = render(<DeviceField value={value} label={label} key={`1`} />);
+        const { getByText } = render(<DeviceField value={value} label={label} key={`1`} />);
 
         expect(getByText(value)).toBeInTheDocument();
         expect(getByText(label)).toBeInTheDocument();
-    })  
-})
+    });
+});

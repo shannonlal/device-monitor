@@ -24,16 +24,16 @@ import '@ionic/react/css/display.css';
 import './theme/variables.css';
 
 /* Redux Store */
-import {store} from './store/index'
+import { store } from './store/index';
 /* Features */
-import DeviceSummary from './features/device-summary/component';
+import { default as ConnectedDeviceSummary } from './features/device-summary/component';
 
 const App: React.FC = () => (
     <Provider store={store}>
         <IonApp>
             <IonReactRouter>
                 <IonRouterOutlet>
-                    <Route exact path="/" component={DeviceSummary} />
+                    <Route exact path="/" component={ConnectedDeviceSummary} />
                 </IonRouterOutlet>
             </IonReactRouter>
         </IonApp>

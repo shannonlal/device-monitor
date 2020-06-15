@@ -1,14 +1,14 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import DeviceDetails from './DeviceDetails';
-import {IDeviceDetailsModel} from '../../../interfaces/models';
+import { IDeviceDetailsModel } from '../../../interfaces/models';
 
 describe('DeviceField', () => {
     test('rendering a simple device field', async () => {
-        const headerLabel:string =  "Header";
-        const headerField:string =  "Field";
-        const deviceDetails:IDeviceDetailsModel = {
-            name: "MyPhone",
+        const headerLabel = 'Header';
+        const headerField = 'Field';
+        const deviceDetails: IDeviceDetailsModel = {
+            name: 'MyPhone',
             diskFree: 101001,
             appVersion: '1.0.1',
             appBuild: '12.1.1',
@@ -20,21 +20,21 @@ describe('DeviceField', () => {
             model: 'adadaa',
             manufacturer: 'Samsung',
             uuid: '12313231213123asdsdad',
-            isVirtual: true
-        }
+            isVirtual: true,
+        };
 
-        const { asFragment } = render(<DeviceDetails headerLabel={headerLabel} 
-                                        headerField={headerField} 
-                                        deviceDetails={deviceDetails} />);
+        const { asFragment } = render(
+            <DeviceDetails headerLabel={headerLabel} headerField={headerField} deviceDetails={deviceDetails} />,
+        );
 
         expect(asFragment()).toMatchSnapshot();
-    }); 
+    });
 
     test('rendering a device details with optional field', async () => {
-        const headerLabel:string =  "Header";
-        const headerField:string =  "Field";
-        const deviceDetails:IDeviceDetailsModel = {
-            name: "MyPhone",
+        const headerLabel = 'Header';
+        const headerField = 'Field';
+        const deviceDetails: IDeviceDetailsModel = {
+            name: 'MyPhone',
             appVersion: '1.0.1',
             appBuild: '12.1.1',
             operatingSystem: 'Android',
@@ -43,33 +43,33 @@ describe('DeviceField', () => {
             model: 'adadaa',
             manufacturer: 'Samsung',
             uuid: '12313231213123asdsdad',
-            isVirtual: true
-        }
+            isVirtual: true,
+        };
 
-        const { asFragment } = render(<DeviceDetails headerLabel={headerLabel} 
-                                        headerField={headerField} 
-                                        deviceDetails={deviceDetails} />);
+        const { asFragment } = render(
+            <DeviceDetails headerLabel={headerLabel} headerField={headerField} deviceDetails={deviceDetails} />,
+        );
 
         expect(asFragment()).toMatchSnapshot();
-    }); 
+    });
 
     test('rendering a device details without device information', async () => {
-        const headerLabel:string =  "Header";
-        const headerField:string =  "Field";
+        const headerLabel = 'Header';
+        const headerField = 'Field';
 
-        const { asFragment } = render(<DeviceDetails headerLabel={headerLabel} 
-                                        headerField={headerField} />);
+        const { asFragment } = render(<DeviceDetails headerLabel={headerLabel} headerField={headerField} />);
 
         expect(asFragment()).toMatchSnapshot();
-    }); 
+    });
 
     test('rendering a device details without device information', async () => {
-        const headerLabel:string =  "Header";
-        const headerField:string =  "Field";
+        const headerLabel = 'Header';
+        const headerField = 'Field';
 
-        const { asFragment } = render(<DeviceDetails headerLabel={headerLabel} 
-                                        headerField={headerField} deviceDetails ={undefined}/>);
+        const { asFragment } = render(
+            <DeviceDetails headerLabel={headerLabel} headerField={headerField} deviceDetails={undefined} />,
+        );
 
         expect(asFragment()).toMatchSnapshot();
-    }); 
-})
+    });
+});
