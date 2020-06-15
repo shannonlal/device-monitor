@@ -1,4 +1,4 @@
-export type DeviceDetailsModel = {
+export interface IDeviceDetailsModel {
     name?: string;
     diskFree?: number;
     appVersion: string;

@@ -1,28 +1,27 @@
 import React from 'react';
 import { IonText, IonRow, IonCol, IonGrid } from '@ionic/react';
-import {DeviceDetailsModel} from '../../models';
-import DeviceField  from '../../components/common/DeviceField';
+import { IDeviceDetailsModel } from '../../../interfaces/models';
+import DeviceField from '../../../components/common/DeviceField';
 
 type DeviceDetailsProps = {
     headerLabel: string;
     headerField: string;
-    deviceDetails?: DeviceDetailsModel|undefined;
+    deviceDetails?: IDeviceDetailsModel | undefined;
 };
 const DeviceDetails: React.FC<DeviceDetailsProps> = (props: DeviceDetailsProps): React.ReactElement => {
     const getDeviceDetail = (label: string, value: any, id: number) => {
         return <DeviceField label={label} value={value} key={`df-${id}-${label}-${value}`} />;
     };
 
-    const getDeviceDetails = (details: DeviceDetailsModel| undefined) => {
-
-        if( typeof details === 'undefined') {
+    const getDeviceDetails = (details: IDeviceDetailsModel | undefined) => {
+        if (typeof details === 'undefined') {
             return;
         }
 
-        const keys: string[] = Object.keys( details );
-        const deviceDetails = (Object.keys(details) as Array<keyof typeof details>).map ( (field, i) => {
+        const keys: string[] = Object.keys(details);
+        const deviceDetails = (Object.keys(details) as Array<keyof typeof details>).map((field, i) => {
             return getDeviceDetail(field, details[field], i);
-        })
+        });
 
         return deviceDetails;
     };

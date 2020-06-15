@@ -16,111 +16,25 @@ exports[`DeviceSummary rendering Device Summary with mock response 1`] = `
       <ion-grid>
         <ion-row>
           <ion-col>
-            <ion-text />
-          </ion-col>
-          <ion-col>
-            <ion-text />
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col>
             <ion-text>
-              appBuild
-            </ion-text>
-          </ion-col>
-          <ion-col>
-            <ion-text />
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col>
-            <ion-text>
-              appVersion
-            </ion-text>
-          </ion-col>
-          <ion-col>
-            <ion-text />
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col>
-            <ion-text>
-              isVirtual
-            </ion-text>
-          </ion-col>
-          <ion-col>
-            <ion-text />
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col>
-            <ion-text>
-              manufacturer
+              Label
             </ion-text>
           </ion-col>
           <ion-col>
             <ion-text>
-              Google Inc.
+              Field
             </ion-text>
           </ion-col>
         </ion-row>
         <ion-row>
           <ion-col>
             <ion-text>
-              model
+              name
             </ion-text>
           </ion-col>
           <ion-col>
             <ion-text>
-              Macintosh
-            </ion-text>
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col>
-            <ion-text>
-              operatingSystem
-            </ion-text>
-          </ion-col>
-          <ion-col>
-            <ion-text>
-              mac
-            </ion-text>
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col>
-            <ion-text>
-              osVersion
-            </ion-text>
-          </ion-col>
-          <ion-col>
-            <ion-text>
-              10.15.4
-            </ion-text>
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col>
-            <ion-text>
-              platform
-            </ion-text>
-          </ion-col>
-          <ion-col>
-            <ion-text>
-              web
-            </ion-text>
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col>
-            <ion-text>
-              uuid
-            </ion-text>
-          </ion-col>
-          <ion-col>
-            <ion-text>
-              775d1a10-8077-4056-91bb-ff67217af06a
+              MyPhone
             </ion-text>
           </ion-col>
         </ion-row>
@@ -132,7 +46,67 @@ exports[`DeviceSummary rendering Device Summary with mock response 1`] = `
           </ion-col>
           <ion-col>
             <ion-text>
-              1110000
+              101001
+            </ion-text>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-text>
+              appVersion
+            </ion-text>
+          </ion-col>
+          <ion-col>
+            <ion-text>
+              1.0.1
+            </ion-text>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-text>
+              appBuild
+            </ion-text>
+          </ion-col>
+          <ion-col>
+            <ion-text>
+              12.1.1
+            </ion-text>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-text>
+              operatingSystem
+            </ion-text>
+          </ion-col>
+          <ion-col>
+            <ion-text>
+              Android
+            </ion-text>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-text>
+              osVersion
+            </ion-text>
+          </ion-col>
+          <ion-col>
+            <ion-text>
+              OS
+            </ion-text>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-text>
+              platform
+            </ion-text>
+          </ion-col>
+          <ion-col>
+            <ion-text>
+              ios
             </ion-text>
           </ion-col>
         </ion-row>
@@ -144,7 +118,7 @@ exports[`DeviceSummary rendering Device Summary with mock response 1`] = `
           </ion-col>
           <ion-col>
             <ion-text>
-              12211111
+              1322
             </ion-text>
           </ion-col>
         </ion-row>
@@ -156,8 +130,54 @@ exports[`DeviceSummary rendering Device Summary with mock response 1`] = `
           </ion-col>
           <ion-col>
             <ion-text>
-              1212121
+              3113131
             </ion-text>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-text>
+              model
+            </ion-text>
+          </ion-col>
+          <ion-col>
+            <ion-text>
+              adadaa
+            </ion-text>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-text>
+              manufacturer
+            </ion-text>
+          </ion-col>
+          <ion-col>
+            <ion-text>
+              Samsung
+            </ion-text>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-text>
+              uuid
+            </ion-text>
+          </ion-col>
+          <ion-col>
+            <ion-text>
+              12313231213123asdsdad
+            </ion-text>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-text>
+              isVirtual
+            </ion-text>
+          </ion-col>
+          <ion-col>
+            <ion-text />
           </ion-col>
         </ion-row>
       </ion-grid>
@@ -178,18 +198,7 @@ exports[`DeviceSummary rendering Device Summary with no data 1`] = `
         </ion-title>
       </ion-toolbar>
     </ion-header>
-    <ion-content>
-      <ion-grid>
-        <ion-row>
-          <ion-col>
-            <ion-text />
-          </ion-col>
-          <ion-col>
-            <ion-text />
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </ion-content>
+    <ion-content />
   </div>
 </DocumentFragment>
 `;
