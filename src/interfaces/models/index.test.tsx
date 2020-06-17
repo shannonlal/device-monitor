@@ -1,6 +1,6 @@
-import { IDeviceDetailsModel } from './index';
+import { IDeviceDetailsModel, IUser } from './index';
 
-describe('Device Details Model ', () => {
+describe('Models', () => {
     test('should verify device details Model', () => {
         const deviceDetails: IDeviceDetailsModel = {
             name: 'MyPhone',
@@ -20,5 +20,15 @@ describe('Device Details Model ', () => {
 
         expect(deviceDetails).toBeDefined();
         expect(deviceDetails.name).toBe('MyPhone');
+    });
+
+    test('should verify user  Model', () => {
+        const user: IUser = {
+            userName: 'testUser',
+            password: 'Test123',
+        };
+
+        expect(user).toBeDefined();
+        expect(user.userName).toBe('testUser');
     });
 });

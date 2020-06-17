@@ -18,7 +18,6 @@ const DeviceDetails: React.FC<DeviceDetailsProps> = (props: DeviceDetailsProps):
             return;
         }
 
-        const keys: string[] = Object.keys(details);
         const deviceDetails = (Object.keys(details) as Array<keyof typeof details>).map((field, i) => {
             return getDeviceDetail(field, details[field], i);
         });

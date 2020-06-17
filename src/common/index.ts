@@ -31,3 +31,11 @@ export enum Environment {
     TEST,
     PROD,
 }
+
+let ENV = Environment.PROD;
+
+export const getEnvironment = (): Environment => ENV;
+
+export const setEnvironment = (env: Environment): void => {
+    ENV = env;
+};

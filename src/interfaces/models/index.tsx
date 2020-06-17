@@ -12,4 +12,9 @@ export interface IDeviceDetailsModel {
     manufacturer: string;
     uuid: string;
     isVirtual: boolean;
-};
+}
+
+export interface IUser {
+    userName: string;
+    password: string;
+}
