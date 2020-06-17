@@ -12,17 +12,9 @@ export const Login: React.FC<IDispatch> = (props: IDispatch): React.ReactElement
         console.log("data", data);
     };
     return (
-        <IonGrid>
-            <IonRow>
-                <IonCol>
-                    <IonText>{props.headerLabel}</IonText>
-                </IonCol>
-                <IonCol>
-                    <IonText>{props.headerField}</IonText>
-                </IonCol>
-            </IonRow>
-            {getDeviceDetails(props.deviceDetails)}
-        </IonGrid>
+        <IonContent>
+            <form onSubmit={handleSubmit(onSubmit)} style={{ padding: 18 }}></form>
+        </IonContent>
     );
 };
 
