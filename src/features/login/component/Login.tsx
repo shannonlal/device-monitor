@@ -12,6 +12,9 @@ const initialValues = {
 // Review tomorrow
 // https://levelup.gitconnected.com/react-redux-hooks-useselector-and-usedispatch-f7d8c7f75cdd
 
+// TO Test
+//https://dev.to/fredrikbergqvist/mocking-redux-useselector-hook-2ale
+
 export const Login: React.FC<IDispatch> = (props: IDispatch): React.ReactElement => {
     const { control, handleSubmit, errors } = useForm<IUser>({
         defaultValues: { ...initialValues },
