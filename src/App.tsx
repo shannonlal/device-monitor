@@ -27,13 +27,15 @@ import './theme/variables.css';
 import { store } from './store/index';
 /* Features */
 import { default as ConnectedDeviceSummary } from './features/device-summary/component';
+import { Login } from './features/login/component/Login';
 
 const App: React.FC = () => (
     <Provider store={store}>
         <IonApp>
             <IonReactRouter>
                 <IonRouterOutlet>
-                    <Route exact path="/" component={ConnectedDeviceSummary} />
+                    <Route exact path="/" component={Login} />
+                    <Route exact path="/devices" component={ConnectedDeviceSummary} />
                 </IonRouterOutlet>
             </IonReactRouter>
         </IonApp>

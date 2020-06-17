@@ -15,6 +15,6 @@ export interface IDeviceDetailsModel {
 }
 
 export interface IUser {
-    userName: string;
+    eMail: string;
     password: string;
 }
