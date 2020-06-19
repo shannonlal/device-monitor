@@ -1,7 +1,7 @@
 import { Dispatch } from 'redux';
 import { authorizeUserStart, authorizeUserSuccess, authorizeUserError  } from './action';
 import { IAuthorization, IUser } from '../../../interfaces/models';
-import LoginService from '../../../services/LoginService';
+import LoginService from '../../../services/login-service';
 import { IResponse } from '../../../interfaces/response';
 
 /**

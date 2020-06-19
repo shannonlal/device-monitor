@@ -7,7 +7,7 @@ export default class LoginService {
      * @param auth: IAuthorization
      */
     login(auth: IAuthorization): Promise<IResponse<IUser>> {
-        if (auth && auth.eMail === 'user' && auth.password === '12345') {
+        if (auth && auth.eMail === 'test@home.com' && auth.password === '12345') {
             const response: IResponse<IUser> = {
                 content: {
                     eMail: auth.eMail,
@@ -24,7 +24,7 @@ export default class LoginService {
                 errorMessage: 'User Not Authorized',
             };
 
-            return Promise.resolve(response);
+            return Promise.reject(response);
         }
     }
 }
