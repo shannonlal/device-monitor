@@ -1,7 +1,7 @@
-import { ILoginService } from '../index';
-import { IResponse } from '../../interfaces/response/index';
 
-export default class LoginService implements ILoginService {
+import { IResponse } from '../interfaces/response/index';
+
+export default class LoginService {
     // TODO implement to actual service
     /**
      * The following service will perform the login service
