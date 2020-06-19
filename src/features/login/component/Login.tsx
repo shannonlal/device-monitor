@@ -1,21 +1,30 @@
 import React from 'react';
 import { IonItem, IonInput, IonContent, IonLabel, IonButton } from '@ionic/react';
 import { useForm, Controller } from 'react-hook-form';
-import { IDispatch } from '../../../interfaces/dispatch';
 import { IUser } from '../../../interfaces/models';
+import { useSelector, useDispatch } from 'react-redux';
+import { getDeviceDetails } from '../../device-summary/store/effects';
 
 const initialValues = {
     eMail: '',
     password: '',
 };
 
-// Review tomorrow
-// https://levelup.gitconnected.com/react-redux-hooks-useselector-and-usedispatch-f7d8c7f75cdd
+interface IProps {
+}
 
-// TO Test
-//https://dev.to/fredrikbergqvist/mocking-redux-useselector-hook-2ale
+// Areas to focus on next
+// 1. Add the new action, effects and reducer for login service
+// 2. Integrate the service into the component
+// 3. Implement Unit Tests for this.
 
-export const Login: React.FC<IDispatch> = (props: IDispatch): React.ReactElement => {
+export const Login: React.FC<IProps> = (): React.ReactElement => {
+    const dispatch = useDispatch();
+
+    dispatch(getDeviceDetails());
+    useSelector((state) => {
+        console.log('Here is the state', state);
+    });
     const { control, handleSubmit, errors } = useForm<IUser>({
         defaultValues: { ...initialValues },
         mode: 'onChange',

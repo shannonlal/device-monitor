@@ -8,8 +8,21 @@ export default class LoginService {
      * @param name
      * @param password
      */
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     login(name: string, password: string): Promise<IResponse<boolean>> {
-        throw Error('Not Supported');
+        if (name === 'user' && password === '12345') {
+            const response: IResponse<boolean> = {
+                content: true,
+                httpStatus: 200,
+            };
+
+            return Promise.resolve(response);
+        } else {
+            const response: IResponse<boolean> = {
+                content: false,
+                httpStatus: 403,
+            };
+
+            return Promise.resolve(response);
+        }
     }
 }
