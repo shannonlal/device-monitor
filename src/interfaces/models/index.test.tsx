@@ -1,4 +1,4 @@
-import { IDeviceDetailsModel, IUser } from './index';
+import { IDeviceDetailsModel, IUser, IAuthorization } from './index';
 
 describe('Models', () => {
     test('should verify device details Model', () => {
@@ -22,13 +22,24 @@ describe('Models', () => {
         expect(deviceDetails.name).toBe('MyPhone');
     });
 
-    test('should verify user  Model', () => {
-        const user: IUser = {
-            userName: 'testUser',
+    test('should verify authorization  Model', () => {
+        const user: IAuthorization = {
+            eMail: 'testUser@help.com',
             password: 'Test123',
         };
 
         expect(user).toBeDefined();
-        expect(user.userName).toBe('testUser');
+        expect(user.eMail).toBe('testUser@help.com');
+    });
+
+    test('should verify user  Model', () => {
+        const user: IUser = {
+            eMail: 'testUser@help.com',
+            firstName: 'John',
+            lastName: 'Smith'
+        };
+
+        expect(user).toBeDefined();
+        expect(user.eMail).toBe('testUser@help.com');
     });
 });

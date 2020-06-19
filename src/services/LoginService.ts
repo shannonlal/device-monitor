@@ -1,25 +1,27 @@
-
 import { IResponse } from '../interfaces/response/index';
+import { IUser, IAuthorization } from '../interfaces/models';
 
 export default class LoginService {
-    // TODO implement to actual service
     /**
      * The following service will perform the login service
-     * @param name
-     * @param password
+     * @param auth: IAuthorization
      */
-    login(name: string, password: string): Promise<IResponse<boolean>> {
-        if (name === 'user' && password === '12345') {
-            const response: IResponse<boolean> = {
-                content: true,
+    login(auth: IAuthorization): Promise<IResponse<IUser>> {
+        if (auth && auth.eMail === 'user' && auth.password === '12345') {
+            const response: IResponse<IUser> = {
+                content: {
+                    eMail: auth.eMail,
+                    firstName: 'John',
+                    lastName: 'Smith',
+                },
                 httpStatus: 200,
             };
 
             return Promise.resolve(response);
         } else {
-            const response: IResponse<boolean> = {
-                content: false,
+            const response: IResponse<IUser> = {
                 httpStatus: 403,
+                errorMessage: 'User Not Authorized',
             };
 
             return Promise.resolve(response);

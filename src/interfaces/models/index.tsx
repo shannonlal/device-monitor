@@ -16,5 +16,11 @@ export interface IDeviceDetailsModel {
 
 export interface IUser {
     eMail: string;
+    firstName: string;
+    lastName: string;
+}
+
+export interface IAuthorization {
+    eMail: string;
     password: string;
 }
