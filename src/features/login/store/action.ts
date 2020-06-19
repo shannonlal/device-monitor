@@ -39,7 +39,7 @@ export function authorizeUserSuccess(user: IUser): IActionAuthorizeUserSuccess {
     };
 }
 
-export function getDeviceDetailsError(errorMessage: string): IActionAuthorizeUserError {
+export function authorizeUserError(errorMessage: string): IActionAuthorizeUserError {
     return {
         type: AUTHORIZE_USER_ERROR,
         errorMessage,
