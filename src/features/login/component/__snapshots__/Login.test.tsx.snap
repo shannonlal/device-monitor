@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`the Login component renders the login page 1`] = `
+<DocumentFragment>
+  <ion-content>
+    <form>
+      <ion-item>
+        <ion-label>
+          Email
+        </ion-label>
+        <ion-input
+          name="eMail"
+          type="email"
+          value=""
+        />
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          Password
+        </ion-label>
+        <ion-input
+          name="password"
+          type="password"
+          value=""
+        />
+      </ion-item>
+      <ion-button
+        color="primary"
+        type="submit"
+      >
+        Primary
+      </ion-button>
+    </form>
+  </ion-content>
+</DocumentFragment>
+`;

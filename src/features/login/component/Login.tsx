@@ -1,9 +1,9 @@
 import React from 'react';
 import { IonItem, IonInput, IonContent, IonLabel, IonButton } from '@ionic/react';
 import { useForm, Controller } from 'react-hook-form';
-import { IUser } from '../../../interfaces/models';
+import { IUser, IAuthorization } from '../../../interfaces/models';
 import { useSelector, useDispatch } from 'react-redux';
-import { getDeviceDetails } from '../../device-summary/store/effects';
+import { authorizeUser } from '../store/effects';
 
 const initialValues = {
     eMail: '',
@@ -21,17 +21,16 @@ interface IProps {
 export const Login: React.FC<IProps> = (): React.ReactElement => {
     const dispatch = useDispatch();
 
-    dispatch(getDeviceDetails());
     useSelector((state) => {
         console.log('Here is the state', state);
     });
-    const { control, handleSubmit, errors } = useForm<IUser>({
+    const { control, handleSubmit, errors } = useForm<IAuthorization>({
         defaultValues: { ...initialValues },
         mode: 'onChange',
     });
 
-    const onSubmit = (data: IUser) => {
-        console.log('data', data);
+    const onSubmit = (auth: IAuthorization) => {
+        dispatch(authorizeUser(auth));
     };
 
     return (
@@ -45,7 +44,7 @@ export const Login: React.FC<IProps> = (): React.ReactElement => {
                         onChangeName="onIonChange"
                         type="email"
                         onChange={([selected]) => {
-                            console.log('fullName', selected.detail.value);
+                            console.log('eMail', selected.detail.value);
                             return selected.detail.value;
                         }}
                         name="eMail"
@@ -76,8 +75,8 @@ export const Login: React.FC<IProps> = (): React.ReactElement => {
                         }}
                     />
                 </IonItem>
-                {errors.eMail && errors.eMail.type === 'required' && (
-                    <div className="error">Your must enter your eMail.</div>
+                {errors.password && errors.password.type === 'required' && (
+                    <div className="error">Your must enter your Password.</div>
                 )}
                 <IonButton type="submit" color="primary">
                     Primary
