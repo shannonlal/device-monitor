@@ -14,9 +14,11 @@ interface IProps {
 }
 
 // Areas to focus on next
-// 1. Add the new action, effects and reducer for login service
-// 2. Integrate the service into the component
-// 3. Implement Unit Tests for this.
+// 1. Need to implement login dispatch
+// 2. Need to implement useSelector to get data
+// 3. Need to implement React Router to go to navigage to next page
+// 4. Need to implement basic unit test
+// 5. Test on phones
 
 export const Login: React.FC<IProps> = (): React.ReactElement => {
     const dispatch = useDispatch();
@@ -43,6 +45,7 @@ export const Login: React.FC<IProps> = (): React.ReactElement => {
                         control={control}
                         onChangeName="onIonChange"
                         type="email"
+                        title="eMail"
                         onChange={([selected]) => {
                             console.log('eMail', selected.detail.value);
                             return selected.detail.value;
@@ -64,6 +67,7 @@ export const Login: React.FC<IProps> = (): React.ReactElement => {
                         control={control}
                         onChangeName="onIonChange"
                         type="password"
+                        title="password"
                         onChange={([selected]) => {
                             console.log('fullName', selected.detail.value);
                             return selected.detail.value;

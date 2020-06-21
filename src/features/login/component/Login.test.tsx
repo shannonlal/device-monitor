@@ -3,10 +3,11 @@ import React from 'react';
 //import { loadSetsSuccess, setCurrentSet, zoomImage } from '../dataLayer';
 import { useDispatch, useSelector } from 'react-redux';
 import { Login } from './Login';
-import { Action } from 'redux';
 import { AuthorizeUserActions } from '../store/action';
 
-import { render, fireEvent } from '@testing-library/react';
+import { render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event'
+import { ionFireEvent as fireEvent } from '@ionic/react-test-utils';
 
 jest.mock('react-redux', () => ({
     ...jest.requireActual('react-redux'),
@@ -19,17 +20,46 @@ const useSelectorMock = useSelector as jest.Mock;
 
 const dispatchResultRecorder = {} as any;
 const fakeDispatch = (action: AuthorizeUserActions) => {
-
-    console.log( 'Calling Fake Dispatch', action.type);
+    console.log('Calling Fake Dispatch', action.type);
     dispatchResultRecorder[action.type] = action;
 };
 
 useDispatchMock.mockImplementation(() => fakeDispatch);
 
 describe('the Login component', () => {
-    it('renders the login page', () => {
+    it('renders the empty login page', () => {
         const { asFragment } = render(<Login />);
 
         expect(asFragment()).toMatchSnapshot();
+    });
+
+    it('Should set email and password values', async () => {
+        try {
+            const { asFragment, findByTitle } = render(<Login />);
+
+            const input = await findByTitle('eMail');
+            const password = await findByTitle('password');
+            fireEvent.ionChange(input, 'test@home.com');
+            fireEvent.ionChange(password, '12345');
+
+            expect(asFragment()).toMatchSnapshot();
+        } catch (err) {
+            expect(err).toBeUndefined();
+        }
+    });
+
+    it('Should attempt to login', async () => {
+        try {
+            const { asFragment, findByTitle } = render(<Login />);
+
+            const input = await findByTitle('eMail');
+            const password = await findByTitle('password');
+            fireEvent.ionChange(input, 'test@home.com');
+            fireEvent.ionChange(password, '12345');
+
+            expect(asFragment()).toMatchSnapshot();
+        } catch (err) {
+            expect(err).toBeUndefined();
+        }
     });
 });
