@@ -8,11 +8,11 @@ const TestProvider = ({ store, children }) => <Provider store={store}>{children}
 
 export function testRender(ui, { store, ...otherOpts }) {
     return render(<TestProvider store={store}>{ui}</TestProvider>, otherOpts);
-};
+}
 
 export function makeTestStore(opts = {}) {
     const store = makeStore(opts);
     const origDispatch = store.dispatch;
     store.dispatch = jest.fn(origDispatch);
     return store;
-};
+}

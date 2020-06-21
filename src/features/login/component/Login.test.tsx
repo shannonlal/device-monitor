@@ -6,7 +6,6 @@ import { Login } from './Login';
 import { AuthorizeUserActions } from '../store/action';
 
 import { render } from '@testing-library/react';
-import userEvent from '@testing-library/user-event'
 import { ionFireEvent as fireEvent } from '@ionic/react-test-utils';
 
 jest.mock('react-redux', () => ({

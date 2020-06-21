@@ -32,4 +32,3 @@ describe('getEnvironment', () => {
         expect(env).toEqual(RuntimeEnvironment.IOS);
     });
 });
-

@@ -4,8 +4,6 @@ import DeviceMobileBridge from './mobile/DeviceMobileBridge';
 import { getDeviceBridge } from './DriverFactory';
 import { setRuntimeEnvironment, RuntimeEnvironment } from '../common';
 
-
-
 //setRuntimeEnvironment
 describe('getDeviceBridge', () => {
     test('should verify getDeviceBridge function exists', () => {
