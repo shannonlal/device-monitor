@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Redirect, Switch } from 'react-router-dom';
 import { IonApp, IonRouterOutlet } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { Provider } from 'react-redux';
@@ -26,17 +26,23 @@ import './theme/variables.css';
 /* Redux Store */
 import { store } from './store/index';
 /* Features */
-import { default as ConnectedDeviceSummary } from './features/device-summary/component';
-import { Login } from './features/login/component/Login';
+import ConnectedDeviceSummary from './features/device-summary/component';
+import Login from './features/login/component/Login';
+
 
 const App: React.FC = () => (
     <Provider store={store}>
         <IonApp>
             <IonReactRouter>
-                <IonRouterOutlet>
-                    <Route exact path="/" component={Login} />
-                    <Route exact path="/devices" component={ConnectedDeviceSummary} />
-                </IonRouterOutlet>
+                <Switch>
+                    <Route path="/login">
+                        <Login />
+                    </Route>
+                    <Route path="/devices">
+                        <ConnectedDeviceSummary />
+                    </Route>
+                    <Redirect exact from="/" to="/login" />
+                </Switch>
             </IonReactRouter>
         </IonApp>
     </Provider>

@@ -5,6 +5,7 @@ import { IAuthorization } from '../../../interfaces/models';
 import { useSelector, useDispatch } from 'react-redux';
 import { authorizeUser } from '../store/effects';
 import { IAuthorizationState } from '../store/reducer';
+import { useHistory, useLocation } from 'react-router-dom';
 
 const initialValues = {
     eMail: '',
@@ -18,19 +19,26 @@ interface IProps {}
 // 4. Need to implement basic unit test
 // 5. Test on phones
 
-export const Login: React.FC<IProps> = (): React.ReactElement => {
+const Login: React.FC<IProps> = (): React.ReactElement => {
+    const history = useHistory();
     const dispatch = useDispatch();
 
+    const location = useLocation();
+
+    console.log( 'history', history);
     const [authSuccessful, setAuthSuccessful] = useState(true);
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     useSelector((state: any) => {
+        console.log('state', state.login);
         if (state && state.login) {
             const loginState: IAuthorizationState = state.login;
             if (loginState.state === 'AUTHENTICATED') {
+                console.log('authenticated', state.login);
                 if (authSuccessful === false) {
                     setAuthSuccessful(true);
                 }
+                history.push('/devices');
             } else if (loginState.state === 'ERROR') {
                 if (authSuccessful === true) {
                     setAuthSuccessful(false);
@@ -47,6 +55,7 @@ export const Login: React.FC<IProps> = (): React.ReactElement => {
         if (authSuccessful === false) {
             setAuthSuccessful(true);
         }
+        console.log('dispatch', auth);
         dispatch(authorizeUser(auth));
     };
 
@@ -103,3 +112,5 @@ export const Login: React.FC<IProps> = (): React.ReactElement => {
         </IonContent>
     );
 };
+
+export default Login;
