@@ -1,6 +1,6 @@
-import { IDeviceDetailsModel } from './index';
+import { IDeviceDetailsModel, IUser, IAuthorization } from './index';
 
-describe('Device Details Model ', () => {
+describe('Models', () => {
     test('should verify device details Model', () => {
         const deviceDetails: IDeviceDetailsModel = {
             name: 'MyPhone',
@@ -20,5 +20,26 @@ describe('Device Details Model ', () => {
 
         expect(deviceDetails).toBeDefined();
         expect(deviceDetails.name).toBe('MyPhone');
+    });
+
+    test('should verify authorization  Model', () => {
+        const user: IAuthorization = {
+            eMail: 'testUser@help.com',
+            password: 'Test123',
+        };
+
+        expect(user).toBeDefined();
+        expect(user.eMail).toBe('testUser@help.com');
+    });
+
+    test('should verify user  Model', () => {
+        const user: IUser = {
+            eMail: 'testUser@help.com',
+            firstName: 'John',
+            lastName: 'Smith'
+        };
+
+        expect(user).toBeDefined();
+        expect(user.eMail).toBe('testUser@help.com');
     });
 });
