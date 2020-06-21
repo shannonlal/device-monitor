@@ -14,11 +14,6 @@ const initialValues = {
 
 interface IProps {}
 
-// Areas to focus on next
-// 3. Need to implement React Router to go to navigage to next page
-// 4. Need to implement basic unit test
-// 5. Test on phones
-
 const Login: React.FC<IProps> = (): React.ReactElement => {
     const history = useHistory();
     const dispatch = useDispatch();
