@@ -1,8 +1,6 @@
 import React from 'react';
-//import { testRender, makeTestStore } from '../../../store/test-utils';
-//import { loadSetsSuccess, setCurrentSet, zoomImage } from '../dataLayer';
 import { useDispatch, useSelector } from 'react-redux';
-import { Login } from './Login';
+import Login from './Login';
 import { AuthorizeUserActions } from '../store/action';
 
 import { render } from '@testing-library/react';
@@ -49,12 +47,15 @@ describe('the Login component', () => {
 
     it('Should attempt to login', async () => {
         try {
-            const { asFragment, findByTitle } = render(<Login />);
+            const { asFragment, findByTitle, findByText } = render(<Login />);
 
             const input = await findByTitle('eMail');
             const password = await findByTitle('password');
+            const submitButton = await findByText('Login');
             fireEvent.ionChange(input, 'test@home.com');
             fireEvent.ionChange(password, '12345');
+
+            fireEvent.click(submitButton);
 
             expect(asFragment()).toMatchSnapshot();
         } catch (err) {
