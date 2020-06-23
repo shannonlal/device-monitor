@@ -4,6 +4,8 @@
 3. Add Weather Status Page
 4. Add Wifi Status Page
 5. Add Menu Options (Responsive for Tablets and Hamburger for Phone)
+# Styling of the pages
+1. Focus on responsiveness of the pages
 ## Action Items that need to be investigated
 1. Custom Android with Capacity
 2. Custom iOS with Capacitor
