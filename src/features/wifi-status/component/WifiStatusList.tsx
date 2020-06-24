@@ -3,11 +3,18 @@ import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/rea
 import { IDeviceDetailsModel, IWifiSummary } from '../../../interfaces/models';
 import WifiSummaryTable from './WifiSummaryTable';
 const WifiStatusList: React.FC = (): React.ReactElement => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const initiWifiNetworks: IWifiSummary[] = [];
+    const [wifiNetworks, setWifiNetworks] = useState(<IWifiSummary[]>{ initiWifiNetworks });
     const ssidLabel = 'Network Name';
     const signalStrengthLabel = 'Signal Strength';
-    const wifiNetworks: IWifiSummary[] = [];
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    
+    /*useEffect(async () => {
+        const result = await axios(
+          'https://hn.algolia.com/api/v1/search?query=redux',
+        );
+     
+        setData(result.data);
+      }, []);*/
 
     const getWifiSummaryTable = (
         wifiSummary: IWifiSummary[] | undefined,
