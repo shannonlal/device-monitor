@@ -46,7 +46,7 @@ describe('the Login component', () => {
         }
     });
 
-    it('Should fail login with incorrect email and password values', async () => {
+    /*it('Should fail login with incorrect email and password values', async () => {
         try {
             const { asFragment, getByText } = render(<Login />);
             const input = await screen.findByTitle('eMail');
@@ -72,7 +72,7 @@ describe('the Login component', () => {
         } catch (err) {
             expect(err).toBeUndefined();
         }
-    });
+    });*/
 
     /*it('Should attempt to login', async () => {
         try {

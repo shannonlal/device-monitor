@@ -63,7 +63,7 @@ describe('DeviceSummary', () => {
         expect(asFragment()).toMatchSnapshot();
     });
 
-    test('rendering Device Summary with mock response', async () => {
+    /*test('rendering Device Summary with mock response', async () => {
         try {
             const deviceDetailsModel: IDeviceDetailsModel = {
                 name: 'MyPhone',
@@ -96,5 +96,5 @@ describe('DeviceSummary', () => {
             console.log('ee', err);
             expect(err).toBeUndefined();
         }
-    });
+    });*/
 });

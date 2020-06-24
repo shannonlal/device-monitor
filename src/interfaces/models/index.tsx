@@ -24,3 +24,15 @@ export interface IAuthorization {
     eMail: string;
     password: string;
 }
+
+export interface IWifiSummary {
+    signalStrength: number;
+    ssid: string;
+}
+
+// This wifi details interface will expand in the future.  Stubbed for now
+export interface IWifiDetails {
+    signalStrength: number;
+    ssid: string;
+    security: string;
+}
