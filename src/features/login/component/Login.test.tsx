@@ -1,11 +1,9 @@
 import React from 'react';
-//import { testRender, makeTestStore } from '../../../store/test-utils';
-//import { loadSetsSuccess, setCurrentSet, zoomImage } from '../dataLayer';
 import { useDispatch, useSelector } from 'react-redux';
-import { Login } from './Login';
+import Login from './Login';
 import { AuthorizeUserActions } from '../store/action';
-
-import { render } from '@testing-library/react';
+import { act } from 'react-dom/test-utils';
+import { render, screen, wait, waitForElement } from '@testing-library/react';
 import { ionFireEvent as fireEvent } from '@ionic/react-test-utils';
 
 jest.mock('react-redux', () => ({
@@ -34,12 +32,13 @@ describe('the Login component', () => {
 
     it('Should set email and password values', async () => {
         try {
-            const { asFragment, findByTitle } = render(<Login />);
-
-            const input = await findByTitle('eMail');
-            const password = await findByTitle('password');
+            const { asFragment } = render(<Login />);
+            const input = await screen.findByTitle('eMail');
+            const password = await screen.findByTitle('password');
             fireEvent.ionChange(input, 'test@home.com');
             fireEvent.ionChange(password, '12345');
+
+            await wait();
 
             expect(asFragment()).toMatchSnapshot();
         } catch (err) {
@@ -47,18 +46,49 @@ describe('the Login component', () => {
         }
     });
 
-    it('Should attempt to login', async () => {
+    it('Should fail login with incorrect email and password values', async () => {
         try {
-            const { asFragment, findByTitle } = render(<Login />);
+            const { asFragment, getByText } = render(<Login />);
+            const input = await screen.findByTitle('eMail');
+            const password = await screen.findByTitle('password');
+            const submitButton = await screen.findByText('Login');
+            fireEvent.ionChange(input, 'test@home.com');
+            fireEvent.ionChange(password, '12345123');
 
-            const input = await findByTitle('eMail');
-            const password = await findByTitle('password');
+            fireEvent.click(submitButton);
+            const rst = await getByText('Invalid Credentials');
+            console.log( 'rst', rst);
+            await wait();
+            waitForElement(() => getByText('Invalid Credentials')).then((el) => {
+                expect(el).toBeDefined();
+                //expect(el.value).toEqual('test@test.de');
+                console.log('EL', el);
+            });
+            expect(asFragment()).toMatchSnapshot();
+
+
+
+            expect(getByText('Invalid Credentials')).toBeDefined();
+        } catch (err) {
+            expect(err).toBeUndefined();
+        }
+    });
+
+    /*it('Should attempt to login', async () => {
+        try {
+            const { asFragment, findByTitle, findByText } = await act(() => render(<Login />));
+
+            const input = await screen.findByTitle('eMail');
+            const password = await screen.findByTitle('password');
+            const submitButton = await screen.findByText('Login');
             fireEvent.ionChange(input, 'test@home.com');
             fireEvent.ionChange(password, '12345');
+
+            fireEvent.click(submitButton);
 
             expect(asFragment()).toMatchSnapshot();
         } catch (err) {
             expect(err).toBeUndefined();
         }
-    });
+    });*/
 });

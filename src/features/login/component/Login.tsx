@@ -14,27 +14,17 @@ const initialValues = {
 
 interface IProps {}
 
-// Areas to focus on next
-// 3. Need to implement React Router to go to navigage to next page
-// 4. Need to implement basic unit test
-// 5. Test on phones
-
 const Login: React.FC<IProps> = (): React.ReactElement => {
     const history = useHistory();
     const dispatch = useDispatch();
 
-    const location = useLocation();
-
-    console.log( 'history', history);
     const [authSuccessful, setAuthSuccessful] = useState(true);
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     useSelector((state: any) => {
-        console.log('state', state.login);
         if (state && state.login) {
             const loginState: IAuthorizationState = state.login;
             if (loginState.state === 'AUTHENTICATED') {
-                console.log('authenticated', state.login);
                 if (authSuccessful === false) {
                     setAuthSuccessful(true);
                 }
@@ -55,7 +45,7 @@ const Login: React.FC<IProps> = (): React.ReactElement => {
         if (authSuccessful === false) {
             setAuthSuccessful(true);
         }
-        console.log('dispatch', auth);
+
         dispatch(authorizeUser(auth));
     };
 
@@ -105,7 +95,7 @@ const Login: React.FC<IProps> = (): React.ReactElement => {
                     <div className="error">Your must enter your Password.</div>
                 )}
                 <IonButton type="submit" color="primary">
-                    Primary
+                    Login
                 </IonButton>
                 {authSuccessful === false && <div className="error">Invalid Credentials</div>}
             </form>

@@ -1,49 +1,100 @@
 import React from 'react';
-import { render, wait } from '@testing-library/react';
-import { DeviceSummary } from './index';
+import { render } from '@testing-library/react';
+import { createStore } from 'redux';
+import { useDispatch, useSelector, Provider } from 'react-redux';
+import DeviceSummary from './index';
 import { IDeviceDetailsModel } from '../../../interfaces/models';
+import { DeviceDetailsActions } from '../store/action';
+import { IDeviceDetailsState } from '../store/reducer';
+import { combinedReducers } from '../../../store/index';
 
+jest.mock('react-redux', () => ({
+    ...jest.requireActual('react-redux'),
+    useDispatch: jest.fn(),
+    useSelector: jest.fn(),
+}));
+
+const useDispatchMock = useDispatch as jest.Mock;
+
+const dispatchResultRecorder = {} as any;
+const fakeDispatch = (action: DeviceDetailsActions) => {
+    console.log('Calling Fake Dispatch', action.type);
+    dispatchResultRecorder[action.type] = action;
+};
+
+useDispatchMock.mockImplementation(() => fakeDispatch);
+
+const deviceDetailsModel: IDeviceDetailsModel = {
+    name: 'MyPhone',
+    appVersion: '1.0.1',
+    appBuild: '12.1.1',
+    operatingSystem: 'Android',
+    osVersion: 'OS',
+    platform: 'ios',
+    model: 'adadaa',
+    manufacturer: 'Samsung',
+    uuid: '12313231213123asdsdad',
+    isVirtual: true,
+};
+
+const deviceDetailsState: IDeviceDetailsState = {
+    state: 'LOADED',
+    deviceDetails: deviceDetailsModel,
+};
+const initialState = {
+    deviceDetails: deviceDetailsState,
+};
+
+
+const useSelectorMock = useSelector as jest.Mock;
+const fakeUseSelector = () => {
+    console.log('Returning state object', initialState);
+    return initialState;
+};
+useSelectorMock.mockImplementation(() => fakeUseSelector);
+
+function renderWithProviders(ui, { reduxState } = {}) {
+    const store = createStore(combinedReducers, reduxState || initialState);
+    return render(<Provider store={store}>{ui}</Provider>);
+}
 describe('DeviceSummary', () => {
     test('rendering Device Summary with no data', async () => {
-        const mockDispatch = (): Promise<any> => {
-            return Promise.resolve();
-        };
-        const { asFragment } = render(
-            <DeviceSummary headerLabel={'Label'} headerField={'Field'} dispatch={mockDispatch} />,
-        );
+        const { asFragment } = render(<DeviceSummary />);
         expect(asFragment()).toMatchSnapshot();
     });
 
     test('rendering Device Summary with mock response', async () => {
-        const deviceDetails: IDeviceDetailsModel = {
-            name: 'MyPhone',
-            diskFree: 101001,
-            appVersion: '1.0.1',
-            appBuild: '12.1.1',
-            operatingSystem: 'Android',
-            osVersion: 'OS',
-            platform: 'ios',
-            memUsed: 1322,
-            diskTotal: 3113131,
-            model: 'adadaa',
-            manufacturer: 'Samsung',
-            uuid: '12313231213123asdsdad',
-            isVirtual: true,
-        };
+        try {
+            const deviceDetailsModel: IDeviceDetailsModel = {
+                name: 'MyPhone',
+                appVersion: '1.0.1',
+                appBuild: '12.1.1',
+                operatingSystem: 'Android',
+                osVersion: 'OS',
+                platform: 'ios',
+                model: 'adadaa',
+                manufacturer: 'Samsung',
+                uuid: '12313231213123asdsdad',
+                isVirtual: true,
+            };
 
-        const mockDispatch = (): Promise<any> => {
-            return Promise.resolve();
-        };
-        const { asFragment, getByText } = render(
-            <DeviceSummary
-                headerLabel={'Label'}
-                headerField={'Field'}
-                dispatch={mockDispatch}
-                deviceDetails={deviceDetails}
-            />,
-        );
+            const deviceDetailsState: IDeviceDetailsState = {
+                state: 'LOADED',
+                deviceDetails: deviceDetailsModel,
+            };
+            const initialState = {
+                deviceDetails: deviceDetailsState,
+            };
 
-        expect(getByText('Samsung')).toBeInTheDocument();
-        expect(asFragment()).toMatchSnapshot();
+            const { asFragment, getByText } = renderWithProviders(<DeviceSummary />, { initialState });
+
+            // const field = await getByText('Samsung');
+            // expect(field).toBeDefined();
+            expect(getByText('Samsung')).toBeInTheDocument();
+            expect(asFragment()).toMatchSnapshot();
+        } catch (err) {
+            console.log('ee', err);
+            expect(err).toBeUndefined();
+        }
     });
 });
