@@ -28,6 +28,7 @@ import { store } from './store/index';
 /* Features */
 import ConnectedDeviceSummary from './features/device-summary/component';
 import Login from './features/login/component/Login';
+import WifiStatusList from './features/wifi-status/component/WifiStatusList'
 
 
 const App: React.FC = () => (
@@ -36,7 +37,7 @@ const App: React.FC = () => (
             <IonReactRouter>
                 <Switch>
                     <Route path="/login">
-                        <Login />
+                        <WifiStatusList />
                     </Route>
                     <Route path="/devices">
                         <ConnectedDeviceSummary />
