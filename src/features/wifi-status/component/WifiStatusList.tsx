@@ -1,20 +1,27 @@
 import React, { useState, useEffect } from 'react';
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/react';
-import { IDeviceDetailsModel, IWifiSummary } from '../../../interfaces/models';
+import { IWifiSummary } from '../../../interfaces/models';
 import WifiSummaryTable from './WifiSummaryTable';
+import { getWifiBridge } from '../../../drivers/DriverFactory';
+import { IWifiBridge } from '../../../drivers/interface';
+
 const WifiStatusList: React.FC = (): React.ReactElement => {
-    const initiWifiNetworks: IWifiSummary[] = [];
-    const [wifiNetworks, setWifiNetworks] = useState(<IWifiSummary[]>{ initiWifiNetworks });
+    const [wifiNetworks, setWifiNetworks] = useState<IWifiSummary[]>();
     const ssidLabel = 'Network Name';
     const signalStrengthLabel = 'Signal Strength';
-    
-    /*useEffect(async () => {
-        const result = await axios(
-          'https://hn.algolia.com/api/v1/search?query=redux',
-        );
-     
-        setData(result.data);
-      }, []);*/
+
+    useEffect(() => {
+        async function getWifiStatus() {
+            try {
+                const wifiBridge: IWifiBridge = getWifiBridge();
+
+                const wifiNetworks: IWifiSummary[] = await wifiBridge.getWifiNetworks();
+
+                setWifiNetworks(wifiNetworks);
+            } catch (err) {}
+        }
+        getWifiStatus();
+    }, []);
 
     const getWifiSummaryTable = (
         wifiSummary: IWifiSummary[] | undefined,
