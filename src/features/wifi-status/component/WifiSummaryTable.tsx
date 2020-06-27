@@ -10,7 +10,19 @@ type WifiSummaryTableProps = {
 };
 const WifiSummaryTable: React.FC<WifiSummaryTableProps> = (props: WifiSummaryTableProps): React.ReactElement => {
     const getWifiSummary = (ssid: string, strength: number, id: number) => {
-        return <DeviceField label={ssid} value={strength.toString()} key={`df-${id}-${ssid}-${strength}`} />;
+        const selectedWifi = (ssid: string) => {
+            console.log('ssid called', ssid);
+        };
+        return (
+            <DeviceField
+                label={ssid}
+                value={strength.toString()}
+                key={`df-${id}-${ssid}-${strength}`}
+                clickHandler={() => {
+                    selectedWifi(ssid);
+                }}
+            />
+        );
     };
 
     const getSummaryTable = (wifiNetworks: IWifiSummary[] | undefined) => {

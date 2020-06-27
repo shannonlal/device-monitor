@@ -5,7 +5,7 @@ import { IAuthorization } from '../../../interfaces/models';
 import { useSelector, useDispatch } from 'react-redux';
 import { authorizeUser } from '../store/effects';
 import { IAuthorizationState } from '../store/reducer';
-import { useHistory, useLocation } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 const initialValues = {
     eMail: '',
