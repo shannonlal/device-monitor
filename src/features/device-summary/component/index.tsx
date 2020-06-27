@@ -16,7 +16,6 @@ const DeviceSummary: React.FC<IDeviceSummaryProps> = (): React.ReactElement => {
     const headerLabel = 'Label';
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const deviceDetailsState: IDeviceDetailsState = useSelector((state: any) => {
-        console.log('Calling use selector', state);
         if (state && state.deviceDetails) {
             if (deviceDetailsState.state === 'INIT') {
                 dispatch(getDeviceDetails());
