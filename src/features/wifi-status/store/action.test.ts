@@ -4,18 +4,22 @@ describe('Select Wifi Actions', () => {
     it('should create an action to start wifi selection', () => {
         const expectedAction = {
             type: actions.SELECTED_WIFI_START,
+            ssid: 'Home Network',
         };
-        expect(actions.selectWifiStart()).toEqual(expectedAction);
+        expect(actions.selectWifiStart('Home Network')).toEqual(expectedAction);
     });
 
-    it('should create an action to authorize successfully', () => {
-        const ssid = 'Home Wifi';
-
+    it('should create an action to get selected wifi successfully', () => {
+        const wifiDetails = {
+            ssid: 'Home Wifi',
+            signalStrength: 3,
+            security: 'None',
+        };
         const expectedAction = {
             type: actions.SELECTED_WIFI_SUCCESS,
-            ssid,
+            wifiDetails,
         };
 
-        expect(actions.selectWifiSuccess(ssid)).toEqual(expectedAction);
+        expect(actions.selectWifiSuccess(wifiDetails)).toEqual(expectedAction);
     });
 });
