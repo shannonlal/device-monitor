@@ -1,5 +1,6 @@
 # Next Action Items that should be done
-1. Login Screen - Done
+1. Refactor all test components to use render
+2. Find out how to mock async effects
 2. Add Device Details Page
 2a. CPU Information
 2b. Memory Information
