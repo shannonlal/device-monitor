@@ -1,5 +1,5 @@
 import { IWifiSummary, IWifiDetails } from '../../../interfaces/models';
-import { GetAvailableWifiActions } from './action';
+import { WifiActions } from './action';
 export interface IWifiState {
     state: string; // 'INIT', 'AUTHENTICATING' | 'AUTHENTICATED' | 'ERROR',
     wifiNetworks?: IWifiSummary[];
@@ -14,7 +14,7 @@ export const initialState: IWifiState = {
     ssid: '',
 };
 
-export function wifiReducer(state: IWifiState = initialState, action: GetAvailableWifiActions): IWifiState {
+export function wifiReducer(state: IWifiState = initialState, action: WifiActions): IWifiState {
     if (action.type === 'GET_AVAILABILE_WIFI_START') {
         return {
             ...state,
@@ -29,6 +29,27 @@ export function wifiReducer(state: IWifiState = initialState, action: GetAvailab
         };
     }
     if (action.type === 'GET_AVAILABILE_WIFI_FAIL') {
+        return {
+            ...state,
+            state: 'ERROR',
+            errorMessage: action.errorMessage,
+        };
+    }
+    if (action.type === 'SELECTED_WIFI_START') {
+        return {
+            ...state,
+            state: 'INIT',
+            ssid: action.ssid,
+        };
+    }
+    if (action.type === 'SELECTED_WIFI_SUCCESS') {
+        return {
+            ...state,
+            state: 'INIT',
+            selectedWifi: action.wifiDetails,
+        };
+    }
+    if (action.type === 'SELECTED_WIFI_FAIL') {
         return {
             ...state,
             state: 'ERROR',

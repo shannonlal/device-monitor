@@ -23,8 +23,6 @@ export interface IActionSelectedWifiFail extends Action {
     errorMessage: string;
 }
 
-export type SelectWifiActions = IActionSelectedWifiStart | IActionSelectedWifiSuccess | IActionSelectedWifiFail;
-
 // Action Functions
 export function selectWifiStart(ssid: string): IActionSelectedWifiStart {
     return {
@@ -68,10 +66,13 @@ export interface IActionGetAvailableWifiFail extends Action {
     errorMessage: string;
 }
 
-export type GetAvailableWifiActions =
+export type WifiActions =
     | IActionGetAvailableWifiStart
     | IActionGetAvailableWifiSuccess
-    | IActionGetAvailableWifiFail;
+    | IActionGetAvailableWifiFail
+    | IActionSelectedWifiStart
+    | IActionSelectedWifiSuccess
+    | IActionSelectedWifiFail;
 
 // Action Functions
 export function getAvaialbleWifiStart(): IActionGetAvailableWifiStart {
