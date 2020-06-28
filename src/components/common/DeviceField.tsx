@@ -12,6 +12,7 @@ type DeviceFieldProps = {
 const DeviceField: React.FC<DeviceFieldProps> = (props: DeviceFieldProps): React.ReactElement => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const handleClick = (event: any) => {
+        /* istanbul ignore next */
         if (props.clickHandler) {
             props.clickHandler(event);
         }
