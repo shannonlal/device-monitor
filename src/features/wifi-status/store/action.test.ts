@@ -9,6 +9,14 @@ describe('Select Wifi Actions', () => {
         expect(actions.selectWifiStart('Home Network')).toEqual(expectedAction);
     });
 
+    it('should create an action to fail wifi selection', () => {
+        const expectedAction = {
+            type: actions.SELECTED_WIFI_FAIL,
+            errorMessage: 'SSID Not Found',
+        };
+        expect(actions.selectWifiFail('SSID Not Found')).toEqual(expectedAction);
+    });
+
     it('should create an action to get selected wifi successfully', () => {
         const wifiDetails = {
             ssid: 'Home Wifi',

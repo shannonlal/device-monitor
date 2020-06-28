@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/react';
 import { IWifiSummary } from '../../../interfaces/models';
 import WifiSummaryTable from './WifiSummaryTable';
-import { getWifiBridge } from '../../../drivers/DriverFactory';
+import * as DriverFactory from '../../../drivers/DriverFactory';
 import { IWifiBridge } from '../../../drivers/interface';
 
 const WifiStatusList: React.FC = (): React.ReactElement => {
@@ -10,10 +10,14 @@ const WifiStatusList: React.FC = (): React.ReactElement => {
     const ssidLabel = 'Network Name';
     const signalStrengthLabel = 'Signal Strength';
 
+    const selectedWifi = (ssid: string): void => {
+        console.log('Wifi Netork', ssid);
+    };
+
     useEffect(() => {
         async function getWifiStatus() {
             try {
-                const wifiBridge: IWifiBridge = getWifiBridge();
+                const wifiBridge: IWifiBridge = DriverFactory.getWifiBridge();
 
                 const wifiNetworks: IWifiSummary[] = await wifiBridge.getWifiNetworks();
 
@@ -27,6 +31,7 @@ const WifiStatusList: React.FC = (): React.ReactElement => {
         wifiSummary: IWifiSummary[] | undefined,
         ssidLabel: string,
         signalStrengthLabel: string,
+        selectWifi: (ssid: string) => void,
     ): JSX.Element | undefined => {
         if (wifiSummary) {
             return (
@@ -34,6 +39,7 @@ const WifiStatusList: React.FC = (): React.ReactElement => {
                     ssidLabel={ssidLabel}
                     signalStength={signalStrengthLabel}
                     wifiNetworks={wifiSummary}
+                    selectWifi={selectWifi}
                 />
             );
         }
@@ -46,7 +52,7 @@ const WifiStatusList: React.FC = (): React.ReactElement => {
                     <IonTitle>Wifi Networks</IonTitle>
                 </IonToolbar>
             </IonHeader>
-            <IonContent>{getWifiSummaryTable(wifiNetworks, ssidLabel, signalStrengthLabel)}</IonContent>
+            <IonContent>{getWifiSummaryTable(wifiNetworks, ssidLabel, signalStrengthLabel, selectedWifi)}</IonContent>
         </IonPage>
     );
 };

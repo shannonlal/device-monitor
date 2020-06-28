@@ -5,6 +5,7 @@ import { IWifiSummary, IWifiDetails } from '../../../interfaces/models';
 // Actions Constants
 export const SELECTED_WIFI_START = 'SELECTED_WIFI_START';
 export const SELECTED_WIFI_SUCCESS = 'SELECTED_WIFI_SUCCESS';
+export const SELECTED_WIFI_FAIL = 'SELECTED_WIFI_FAIL';
 
 // Action Types
 export interface IActionSelectedWifiStart extends Action {
@@ -17,7 +18,12 @@ export interface IActionSelectedWifiSuccess extends Action {
     wifiDetails: IWifiDetails;
 }
 
-export type SelectWifiActions = IActionSelectedWifiStart | IActionSelectedWifiSuccess;
+export interface IActionSelectedWifiFail extends Action {
+    type: 'SELECTED_WIFI_FAIL';
+    errorMessage: string;
+}
+
+export type SelectWifiActions = IActionSelectedWifiStart | IActionSelectedWifiSuccess | IActionSelectedWifiFail;
 
 // Action Functions
 export function selectWifiStart(ssid: string): IActionSelectedWifiStart {
@@ -31,6 +37,13 @@ export function selectWifiSuccess(wifiDetails: IWifiDetails): IActionSelectedWif
     return {
         type: SELECTED_WIFI_SUCCESS,
         wifiDetails,
+    };
+}
+
+export function selectWifiFail(errorMessage: string): IActionSelectedWifiFail {
+    return {
+        type: SELECTED_WIFI_FAIL,
+        errorMessage,
     };
 }
 
