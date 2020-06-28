@@ -45,7 +45,7 @@ export function wifiReducer(state: IWifiState = initialState, action: WifiAction
     if (action.type === 'SELECTED_WIFI_SUCCESS') {
         return {
             ...state,
-            state: 'INIT',
+            state: 'RETRIEVED',
             selectedWifi: action.wifiDetails,
         };
     }

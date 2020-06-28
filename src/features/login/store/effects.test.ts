@@ -1,9 +1,6 @@
-import sinon from 'sinon';
 import { authorizeUser } from './effects';
-import { Dispatch } from 'redux';
 import * as actions from './action';
 import { AuthorizeUserActions } from './action';
-import LoginService from '../../../services/login-service';
 
 import { IAuthorization, IUser } from '../../../interfaces/models';
 
