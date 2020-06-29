@@ -7,10 +7,14 @@ import {
     getAvaialbleWifiSuccess,
     selectWifiFail,
 } from './action';
-import { IWifiBridge } from '../../../drivers/interface';
-import * as DriverFactory from '../../../drivers/DriverFactory';
 import { IWifiSummary, IWifiDetails } from '../../../interfaces/models';
+import WifiService from '../../../services/wifi-service';
 
+let wifiService = new WifiService();
+
+export function setWifiService(service: WifiService): void {
+    wifiService = service;
+}
 /**
  * The following function will get the select Wifi Details
  * based on the SSID
@@ -19,9 +23,7 @@ export function selectWifi(ssid: string) {
     return async (dispatch: Dispatch) => {
         dispatch(selectWifiStart(ssid));
         try {
-            const wifiBridge: IWifiBridge = DriverFactory.getWifiBridge();
-
-            const wifiDetails: IWifiDetails = await wifiBridge.getWifiDetails(ssid);
+            const wifiDetails: IWifiDetails = await wifiService.getSelectedWifiDetails(ssid);
 
             return dispatch(selectWifiSuccess(wifiDetails));
         } catch (err) {
@@ -38,9 +40,7 @@ export function getAvalaibleWifiNetworks() {
     return async (dispatch: Dispatch) => {
         dispatch(getAvaialbleWifiStart());
         try {
-            const wifiBridge: IWifiBridge = DriverFactory.getWifiBridge();
-
-            const wifiNetworks: IWifiSummary[] = await wifiBridge.getWifiNetworks();
+            const wifiNetworks: IWifiSummary[] = await wifiService.getAvailableWifiNetworks();
 
             return dispatch(getAvaialbleWifiSuccess(wifiNetworks));
         } catch (err) {
