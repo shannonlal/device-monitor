@@ -16,6 +16,7 @@ const WifiDeviceDetails: React.FC = (): React.ReactElement => {
     const wifiNotFound = `No Details Found on Wifi Network`;
 
     const wifiState: IWifiState = useSelector((state: any) => {
+        /* istanbul ignore next */
         if (state && state.wifi) {
             return state.wifi;
         }

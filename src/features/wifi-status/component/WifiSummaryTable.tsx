@@ -13,7 +13,7 @@ const WifiSummaryTable: React.FC<WifiSummaryTableProps> = (props: WifiSummaryTab
     const getWifiSummary = (ssid: string, strength: number, id: number) => {
         const selectedWifi = (ssid: string) => {
             /* istanbul ignore next */
-            console.log('ssid called', ssid);
+            // props.selectWifi(ssid);
         };
         return (
             <DeviceField
