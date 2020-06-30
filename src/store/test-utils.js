@@ -1,18 +1,22 @@
-/* eslint-disable react/prop-types */
+// test-utils.js
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render as rtlRender } from '@testing-library/react';
+import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import { makeStore } from '../dataLayer';
+import { initialState as reducerInitialState, combinedReducers } from './index';
 
-const TestProvider = ({ store, children }) => <Provider store={store}>{children}</Provider>;
-
-export function testRender(ui, { store, ...otherOpts }) {
-    return render(<TestProvider store={store}>{ui}</TestProvider>, otherOpts);
+function render(
+    ui,
+    { initialState = reducerInitialState, store = createStore(combinedReducers, initialState), ...renderOptions } = {},
+) {
+    function Wrapper({ children }) {
+        return <Provider store={store}>{children}</Provider>;
+    }
+    return rtlRender(ui, { wrapper: Wrapper, ...renderOptions });
 }
 
-export function makeTestStore(opts = {}) {
-    const store = makeStore(opts);
-    const origDispatch = store.dispatch;
-    store.dispatch = jest.fn(origDispatch);
-    return store;
-}
+// re-export everything
+export * from '@testing-library/react';
+
+// override render method
+export { render };

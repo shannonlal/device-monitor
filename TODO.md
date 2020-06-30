@@ -1,8 +1,13 @@
 # Next Action Items that should be done
-1. Login Screen
+1. Refactor all test components to use render
+2. Find out how to mock async effects
 2. Add Device Details Page
+2a. CPU Information
+2b. Memory Information
+2c. Storage
+2d. SIM Card
+3. Add Wifi Status Page
 3. Add Weather Status Page
-4. Add Wifi Status Page
 5. Add Menu Options (Responsive for Tablets and Hamburger for Phone)
 # Styling of the pages
 1. Focus on responsiveness of the pages

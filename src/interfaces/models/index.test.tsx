@@ -1,4 +1,4 @@
-import { IDeviceDetailsModel, IUser, IAuthorization } from './index';
+import { IDeviceDetailsModel, IUser, IAuthorization, IWifiSummary, IWifiDetails } from './index';
 
 describe('Models', () => {
     test('should verify device details Model', () => {
@@ -41,5 +41,26 @@ describe('Models', () => {
 
         expect(user).toBeDefined();
         expect(user.eMail).toBe('testUser@help.com');
+    });
+
+    test('should verify Wifi Summary Model', () => {
+        const wifiSummary: IWifiSummary = {
+            signalStrength: 3,
+            ssid: 'Shannon Home',
+        };
+
+        expect(wifiSummary).toBeDefined();
+        expect(wifiSummary.ssid).toBe('Shannon Home');
+    });
+
+    test('should verify Wifi Details Model', () => {
+        const wifiDetails: IWifiDetails = {
+            signalStrength: 3,
+            ssid: 'Shannon Home',
+            security: 'None',
+        };
+
+        expect(wifiDetails).toBeDefined();
+        expect(wifiDetails.ssid).toBe('Shannon Home');
     });
 });
